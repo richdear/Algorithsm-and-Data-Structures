@@ -31,8 +31,6 @@ def sort(items):
     list2=items[middle:]
     if len(items)<=1:
         return items
-    elif len(list1)==1 and len(list2)==1:
-        return merge(list1,list2)
     return merge(sort(list1),sort(list2))
 
 # print(merge([3,9,11,19],[1,2,7,10,16]))
