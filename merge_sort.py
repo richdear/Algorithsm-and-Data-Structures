@@ -29,9 +29,9 @@ def sort(items):
     middle=len(items)//2
     list1=items[:middle]
     list2=items[middle:]
-    if len(items)==1 or len(items)==0:
+    if len(items)<=1:
         return items
-    elif (len(list1)==1 or len(list1)==0) and (len(list2)==0 or len(list2)==1):
+    elif len(list1)==1 and len(list2)==1:
         return merge(list1,list2)
     return merge(sort(list1),sort(list2))
 
