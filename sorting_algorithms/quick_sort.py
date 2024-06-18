@@ -22,7 +22,7 @@ def pivot_helper(items, start=0, end=0):
 def quick_sort_from_video(items, start, end):
     if end-start<=1: return
     pivot_index=pivot_helper(items,start,end)
-    start_left=0
+    start_left=start
     end_left=pivot_index
     quick_sort_from_video(items,start_left,end_left)
 
