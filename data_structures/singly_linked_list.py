@@ -66,6 +66,15 @@ class SinglyLinkedList():
             self.head=self.head.next
             self.length-=1
         return shifted_value
+    
+    def unshift(self,value)->any:
+        new_node=Node(value)
+        new_node.next=self.head
+        if self.empty():
+            self.tail=new_node
+        self.head=new_node
+        self.length+=1
+        
 
 link_list=SinglyLinkedList()
 link_list.push("Teste")
@@ -94,6 +103,13 @@ print(link_list)
 link_list.shift()
 print(link_list)
 
+
+link_list=SinglyLinkedList()
+link_list.unshift("Teste")
+link_list.unshift("12121")
+link_list.unshift(78)
+link_list.unshift(1)
+print(link_list)
 
 
 
