@@ -25,7 +25,7 @@ class SinglyLinkedList():
         pointer:Node=self.head
         label:str=""
         while pointer.next!=None:
-            label+=f"{pointer.value} "
+            label+=f"{pointer.value}, "
             pointer=pointer.next
         label+=f"{pointer.value} "
         return label
@@ -97,7 +97,28 @@ class SinglyLinkedList():
                 position_counter+=1
         looper.value=value
         return looper.value
-        
+    
+    def insert(self,position:int, value:any):
+        if  self.length<position or position<0:
+            return None
+        else:
+            if self.empty() or position==0:
+                self.unshift(value)
+            elif position==self.length:
+                self.push(value)
+            else:
+                new_node=Node(value)
+                looper=self.head
+                prev=None
+                position_counter=0
+                while position_counter!=position:
+                    prev=looper
+                    looper=looper.next
+                    position_counter+=1
+                new_node.next=looper
+                if prev:
+                    prev.next=new_node
+                self.length+=1
         
 print("-----------Push------------------------")
 link_list=SinglyLinkedList()
@@ -179,3 +200,23 @@ link_list.set(1,78)
 print(link_list.get(1))
 link_list.set(2,1)
 print(link_list.get(3))
+
+print("-----------Insert------------------------")
+link_list=SinglyLinkedList()
+link_list.push("Teste")
+link_list.push("12121")
+link_list.push(78)
+link_list.push(1)
+print(link_list)
+link_list.insert(0,"new item1")
+print(link_list)
+link_list.insert(3,"new item2")
+print(link_list)
+link_list.insert(2,"new item3")
+print(link_list)
+link_list.insert(1,"new item4")
+print(link_list)
+link_list.insert(7,"new item5")
+print(link_list)
+link_list.insert(9,"new item6")
+print(link_list)
