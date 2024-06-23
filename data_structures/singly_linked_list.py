@@ -84,7 +84,7 @@ class SinglyLinkedList():
             while position_counter!=position:
                 looper=looper.next
                 position_counter+=1
-        return looper.value
+        return looper
     
     def set(self,position:int, value:any):
         position_counter=0
@@ -107,17 +107,11 @@ class SinglyLinkedList():
             elif position==self.length:
                 self.push(value)
             else:
+                prev=self.get(position-1)
+                current=self.get(position)
                 new_node=Node(value)
-                looper=self.head
-                prev=None
-                position_counter=0
-                while position_counter!=position:
-                    prev=looper
-                    looper=looper.next
-                    position_counter+=1
-                new_node.next=looper
-                if prev:
-                    prev.next=new_node
+                new_node.next=current
+                prev.next=new_node
                 self.length+=1
         
 print("-----------Push------------------------")
@@ -180,10 +174,10 @@ link_list.unshift("12121")
 link_list.unshift(78)
 link_list.unshift(1)
 print(link_list)
-print(link_list.get(2))
-print(link_list.get(0))
-print(link_list.get(1))
-print(link_list.get(3))
+print(link_list.get(2).value)
+print(link_list.get(0).value)
+print(link_list.get(1).value)
+print(link_list.get(3).value)
 
 print("----------Set-------------------------")
 link_list=SinglyLinkedList()
@@ -193,13 +187,13 @@ link_list.push(78)
 link_list.push(1)
 print(link_list)
 link_list.set(3,"Teste")
-print(link_list.get(3))
+print(link_list.get(3).value)
 link_list.set(0,"12121")
-print(link_list.get(0))
+print(link_list.get(0).value)
 link_list.set(1,78)
-print(link_list.get(1))
+print(link_list.get(1).value)
 link_list.set(2,1)
-print(link_list.get(3))
+print(link_list.get(3).value)
 
 print("-----------Insert------------------------")
 link_list=SinglyLinkedList()
