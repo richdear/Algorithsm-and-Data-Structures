@@ -108,7 +108,7 @@ class SinglyLinkedList():
                 self.push(value)
             else:
                 prev=self.get(position-1)
-                current=self.get(position)
+                current=prev.next
                 new_node=Node(value)
                 new_node.next=current
                 prev.next=new_node
