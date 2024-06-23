@@ -18,6 +18,7 @@ class SinglyLinkedList():
             self.tail.next=new_node
             self.tail=new_node
         self.length+=1
+        return True
     
     def __str__(self) -> str:
         if self.empty():
@@ -74,6 +75,7 @@ class SinglyLinkedList():
             self.tail=new_node
         self.head=new_node
         self.length+=1
+        return True
         
     def get(self,position:int):
         position_counter=0
@@ -100,7 +102,7 @@ class SinglyLinkedList():
     
     def insert(self,position:int, value:any):
         if  self.length<position or position<0:
-            return None
+            return False
         else:
             if self.empty() or position==0:
                 self.unshift(value)
@@ -113,6 +115,7 @@ class SinglyLinkedList():
                 new_node.next=current
                 prev.next=new_node
                 self.length+=1
+        return True
         
 print("-----------Push------------------------")
 link_list=SinglyLinkedList()
