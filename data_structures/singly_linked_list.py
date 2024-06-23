@@ -132,6 +132,29 @@ class SinglyLinkedList():
             prev.next=current.next
             self.length-=1
             return current
+    
+    def reverse(self):
+        if self.length==0:
+            return None
+        elif self.length==1:
+            return self
+        else:
+            prev=None
+            new_tail=self.head
+            reverse_count=0
+            looper=self.head
+            while reverse_count<self.length:
+                current=looper
+                looper=looper.next
+                current.next=prev
+                prev=current
+                reverse_count+=1
+            self.head=prev
+            self.tail=new_tail
+
+            
+        
+        
         
 print("-----------Push------------------------")
 link_list=SinglyLinkedList()
@@ -256,4 +279,14 @@ print(link_list)
 print(link_list.remove(9) and link_list.remove(9).value )
 print(link_list)
 print(link_list.remove(11) and link_list.remove(11).value )
+print(link_list)
+
+print("-----------Reverse------------------------")
+link_list=SinglyLinkedList()
+link_list.push("Teste")
+link_list.push("12121")
+link_list.push(78)
+link_list.push(1)
+print(link_list)
+link_list.reverse()
 print(link_list)
