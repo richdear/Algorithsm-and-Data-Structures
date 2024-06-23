@@ -13,11 +13,11 @@ class SinglyLinkedList():
         self.tail=self.head
     
     def push(self,value):
+        new_node=Node(value)
         if self.head==None:
-            self.head=Node(value)
+            self.head=new_node
             self.tail=self.head
         else:
-            new_node=Node(value)
             self.tail.next=new_node
             self.tail=new_node
         self.length+=1
