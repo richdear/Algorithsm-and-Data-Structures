@@ -85,14 +85,38 @@ class SinglyLinkedList():
                 looper=looper.next
                 position_counter+=1
         return looper.value
+    
+    def set(self,position:int, value:any):
+        position_counter=0
+        looper=self.head
+        if self.empty() or self.length<=position or position<0:
+            return None
+        else:
+            while position_counter!=position:
+                looper=looper.next
+                position_counter+=1
+        looper.value=value
+        return looper.value
         
         
+print("-----------Push------------------------")
+link_list=SinglyLinkedList()
+link_list.push("Teste")
+print(link_list)
+link_list.push("12121")
+print(link_list)
+link_list.push(78)
+print(link_list)
+link_list.push(1)
+print(link_list)
 
+print("-----------Pop------------------------")
 link_list=SinglyLinkedList()
 link_list.push("Teste")
 link_list.push("12121")
 link_list.push(78)
 link_list.push(1)
+
 link_list.pop()
 print(link_list)
 link_list.pop()
@@ -102,6 +126,8 @@ print(link_list)
 link_list.pop()
 print(link_list)
 
+print("-----------Shift------------------------")
+link_list=SinglyLinkedList()
 link_list.push("Teste")
 link_list.push("12121")
 link_list.push(78)
@@ -115,17 +141,41 @@ print(link_list)
 link_list.shift()
 print(link_list)
 
+print("-----------Unshift------------------------")
+link_list=SinglyLinkedList()
+link_list.unshift("Teste")
+print(link_list)
+link_list.unshift("12121")
+print(link_list)
+link_list.unshift(78)
+print(link_list)
+link_list.unshift(1)
+print(link_list)
 
+print("----------Get-------------------------")
 link_list=SinglyLinkedList()
 link_list.unshift("Teste")
 link_list.unshift("12121")
-# link_list.unshift(78)
-# link_list.unshift(1)
+link_list.unshift(78)
+link_list.unshift(1)
 print(link_list)
-
-print("----------Shift-------------------------")
 print(link_list.get(2))
 print(link_list.get(0))
 print(link_list.get(1))
 print(link_list.get(3))
 
+print("----------Set-------------------------")
+link_list=SinglyLinkedList()
+link_list.push("Teste")
+link_list.push("12121")
+link_list.push(78)
+link_list.push(1)
+print(link_list)
+link_list.set(3,"Teste")
+print(link_list)
+link_list.set(0,"12121")
+print(link_list)
+link_list.set(1,78)
+print(link_list)
+link_list.set(2,1)
+print(link_list)
