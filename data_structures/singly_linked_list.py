@@ -76,9 +76,9 @@ class SinglyLinkedList():
         self.length+=1
         
     def get(self,position:int):
-        position_counter=1
+        position_counter=0
         looper=self.head
-        if self.empty() or self.length<position:
+        if self.empty() or self.length<=position or position<0:
             return None
         else:
             while looper.next!=None:
@@ -126,8 +126,8 @@ link_list.unshift("12121")
 print(link_list)
 
 print("----------Shift-------------------------")
-print(link_list.get(3))
-print(link_list.get(1))
 print(link_list.get(2))
-print(link_list.get(4))
+print(link_list.get(0))
+print(link_list.get(1))
+print(link_list.get(3))
 
