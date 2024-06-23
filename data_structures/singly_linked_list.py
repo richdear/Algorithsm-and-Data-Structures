@@ -75,6 +75,20 @@ class SinglyLinkedList():
         self.head=new_node
         self.length+=1
         
+    def get(self,position:int):
+        position_counter=1
+        looper=self.head
+        if self.empty() or self.length<position:
+            return None
+        else:
+            while looper.next!=None:
+                if position_counter==position:
+                    break
+                looper=looper.next
+                position_counter+=1
+        return looper.value
+        
+        
 
 link_list=SinglyLinkedList()
 link_list.push("Teste")
@@ -107,9 +121,13 @@ print(link_list)
 link_list=SinglyLinkedList()
 link_list.unshift("Teste")
 link_list.unshift("12121")
-link_list.unshift(78)
-link_list.unshift(1)
+# link_list.unshift(78)
+# link_list.unshift(1)
 print(link_list)
 
-
+print("----------Shift-------------------------")
+print(link_list.get(3))
+print(link_list.get(1))
+print(link_list.get(2))
+print(link_list.get(4))
 
