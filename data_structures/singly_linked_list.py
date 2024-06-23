@@ -81,9 +81,7 @@ class SinglyLinkedList():
         if self.empty() or self.length<=position or position<0:
             return None
         else:
-            while looper.next!=None:
-                if position_counter==position:
-                    break
+            while position_counter!=position:
                 looper=looper.next
                 position_counter+=1
         return looper.value
