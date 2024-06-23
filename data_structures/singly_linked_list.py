@@ -20,21 +20,30 @@ class SinglyLinkedList():
         self.length+=1
     
     def pop(self) -> any:
+        popped_value=None
         if self.empty():
-            return None
+            popped_value=None
         else:
             pointer=self.head
             prev=None
             while pointer.next!=None:
                 prev=pointer
                 pointer=pointer.next
-            prev.next=None
+            if hasattr(prev,'next'):
+                prev.next=None
             popped_value=pointer.value
             self.tail=prev
             self.length-=1
-            return popped_value
+        
+        if self.empty():
+            self.head=None
+            self.tail=None
+            
+        return popped_value
     
     def __str__(self) -> str:
+        if self.empty():
+            return ""
         pointer:Node=self.head
         label:str=""
         while pointer.next!=None:
@@ -47,7 +56,7 @@ class SinglyLinkedList():
         return self.length
     
     def empty(self)->bool:
-        return self.head==None
+        return self.length==0
 
 link_list=SinglyLinkedList()
 link_list.push("Teste")
@@ -56,8 +65,14 @@ link_list.push(78)
 link_list.push(1)
 link_list.pop()
 link_list.pop()
+link_list.pop()
+link_list.pop()
+print(link_list.head)
+print(link_list.tail)
+# link_list.pop()
+
 print(link_list)
-print(len(link_list))
+# print(len(link_list))
 
 
 
