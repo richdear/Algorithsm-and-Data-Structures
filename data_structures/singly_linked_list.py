@@ -43,7 +43,7 @@ class SinglyLinkedList():
         label+=f"{pointer.value} "
         return label
     
-    def __len__(self):
+    def __len__(self)->int:
         return self.length
     
     def empty(self)->bool:
