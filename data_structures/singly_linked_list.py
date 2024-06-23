@@ -38,9 +38,9 @@ class SinglyLinkedList():
         return self.length==0
     
     def pop(self)->any:
-        popped_value=None
+        popped_node=None
         if self.empty():
-            popped_value=None
+            popped_node=None
         else:
             pointer=self.head
             prev=None
@@ -49,7 +49,7 @@ class SinglyLinkedList():
                 pointer=pointer.next
             if hasattr(prev,'next'):
                 prev.next=None
-            popped_value=pointer.value
+            popped_node=pointer
             self.tail=prev
             self.length-=1
         
@@ -57,16 +57,16 @@ class SinglyLinkedList():
             self.head=None
             self.tail=None
             
-        return popped_value
+        return popped_node
     
     def shift(self)->any:
         if self.empty():
             return None
         else:
-            shifted_value=self.head.value
+            shifted_node=self.head
             self.head=self.head.next
             self.length-=1
-        return shifted_value
+        return shifted_node
     
     def unshift(self,value)->any:
         new_node=Node(value)
@@ -118,6 +118,20 @@ class SinglyLinkedList():
                 prev.next=new_node
                 self.length+=1
         return True
+    
+    def remove(self,position:int):
+        if  self.length<=position or position<0:
+            return False
+        elif position==0:
+            return self.shift()
+        elif position==self.length-1:
+            return self.pop()
+        else:
+            prev=self.get(position-1)
+            current=prev.next
+            prev.next=current.next
+            self.length-=1
+            return current
         
 print("-----------Push------------------------")
 link_list=SinglyLinkedList()
@@ -220,4 +234,26 @@ print(link_list)
 print(link_list.insert(9,"new item6"))
 print(link_list)
 print(link_list.insert(11,"new item6"))
+print(link_list)
+
+print("-----------Remove------------------------")
+link_list=SinglyLinkedList()
+link_list.push("Teste")
+link_list.push("12121")
+link_list.push(78)
+link_list.push(1)
+print(link_list)
+print(link_list.remove(0).value)
+print(link_list)
+print(link_list.remove(3) and link_list.remove(3).value )
+print(link_list)
+print(link_list.remove(2).value)
+print(link_list)
+print(link_list.remove(1).value)
+print(link_list)
+print(link_list.remove(7) and link_list.remove(7).value )
+print(link_list)
+print(link_list.remove(9) and link_list.remove(9).value )
+print(link_list)
+print(link_list.remove(11) and link_list.remove(11).value )
 print(link_list)
