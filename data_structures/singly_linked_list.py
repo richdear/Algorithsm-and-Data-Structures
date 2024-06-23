@@ -36,7 +36,7 @@ class SinglyLinkedList():
     def empty(self)->bool:
         return self.length==0
     
-     def pop(self) -> any:
+    def pop(self)->any:
         popped_value=None
         if self.empty():
             popped_value=None
@@ -73,15 +73,27 @@ link_list.push("12121")
 link_list.push(78)
 link_list.push(1)
 link_list.pop()
-link_list.pop()
-link_list.pop()
-link_list.pop()
-print(link_list.head)
-print(link_list.tail)
-# link_list.pop()
-
 print(link_list)
-# print(len(link_list))
+link_list.pop()
+print(link_list)
+link_list.pop()
+print(link_list)
+link_list.pop()
+print(link_list)
+
+link_list.push("Teste")
+link_list.push("12121")
+link_list.push(78)
+link_list.push(1)
+link_list.shift()
+print(link_list)
+link_list.shift()
+print(link_list)
+link_list.shift()
+print(link_list)
+link_list.shift()
+print(link_list)
+
 
 
 
