@@ -137,6 +137,7 @@ class DoublyLinkedList():
                 after_node=node_to_remove.next
                 before_node.next=after_node
                 after_node.prev=before_node
+                self.length-=1
                 return node_to_remove
 
 # print("--------------------Push-----------------------")            
