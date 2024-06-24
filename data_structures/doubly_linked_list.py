@@ -124,7 +124,20 @@ class DoublyLinkedList():
             self.length+=1
             return True
         return False        
-            
+    
+    def remove(self, position):
+        if position==0:
+            return self.shift()
+        elif position==self.length-1:
+            return self.pop()
+        else:
+            node_to_remove=self.get(position)
+            if node_to_remove:
+                before_node=node_to_remove.prev
+                after_node=node_to_remove.next
+                before_node.next=after_node
+                after_node.prev=before_node
+                return node_to_remove
 
 # print("--------------------Push-----------------------")            
 # dlist=DoublyLinkedList()
@@ -213,20 +226,42 @@ class DoublyLinkedList():
 # dlist.set(4,1111)
 # print(dlist)
 
-print("--------------------Insert-------------------------")
+# print("--------------------Insert-------------------------")
+# dlist=DoublyLinkedList()
+# dlist.push("One").push("Two").push("Three").push("Four")
+# print(dlist)
+# dlist.insert(3,"Teste")
+# print(dlist)
+# dlist.insert(0,"12121")
+# print(dlist)
+# dlist.insert(1,78)
+# print(dlist)
+# dlist.insert(2,1)
+# print(dlist)
+# dlist.insert(4,1111)
+# print(dlist)
+# dlist.insert(9,"Last item")
+# dlist.insert(11,"Last item")
+# print(dlist)
+
+print("-----------Remove------------------------")
 dlist=DoublyLinkedList()
-dlist.push("One").push("Two").push("Three").push("Four")
+dlist.push("Teste")
+dlist.push("12121")
+dlist.push(78)
+dlist.push(1)
 print(dlist)
-dlist.insert(3,"Teste")
+print(dlist.remove(0).value)
 print(dlist)
-dlist.insert(0,"12121")
+print(dlist.remove(3) and dlist.remove(3).value )
 print(dlist)
-dlist.insert(1,78)
+print(dlist.remove(2).value)
 print(dlist)
-dlist.insert(2,1)
+print(dlist.remove(1).value)
 print(dlist)
-dlist.insert(4,1111)
+print(dlist.remove(7) and dlist.remove(7).value )
 print(dlist)
-dlist.insert(9,"Last item")
-dlist.insert(11,"Last item")
+print(dlist.remove(9) and dlist.remove(9).value )
+print(dlist)
+print(dlist.remove(11) and dlist.remove(11).value )
 print(dlist)
