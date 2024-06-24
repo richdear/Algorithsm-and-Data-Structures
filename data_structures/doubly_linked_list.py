@@ -104,91 +104,128 @@ class DoublyLinkedList():
             node_to_update.value=value
             return True
         return False
+    
+    def insert(self, position, value):
+        if position==0:
+            self.unshift(value)
+            return True
+        if position==self.length:
+            self.push(value)
+            return True
+        new_node=Node(value)
+        node_at_position=self.get(position)
+        if node_at_position:
+            new_node.next=node_at_position
+            new_node.prev=node_at_position.prev
+            if node_at_position.prev:
+                node_at_position.prev.next=new_node
+            node_at_position.prev=new_node
+            self.length+=1
+            return True
+        return False        
             
 
-print("--------------------Push-----------------------")            
+# print("--------------------Push-----------------------")            
+# dlist=DoublyLinkedList()
+# dlist.push("One").push("Two").push("Three").push("Four")
+# print(dlist)    
+
+# print("--------------------Pop-----------------------")            
+# dlist=DoublyLinkedList()
+# dlist.push("One").push("Two").push("Three").push("Four")
+# print(dlist)
+# print(dlist.pop().value)
+# print(dlist)
+
+# print(dlist.pop().value)
+# print(dlist)
+
+# print(dlist.pop().value)
+# print(dlist)
+
+# print(dlist.pop().value)
+# print(dlist)
+
+# print(dlist.pop())
+# print(dlist)
+
+# print("--------------------Shift-----------------------")            
+# dlist=DoublyLinkedList()
+# dlist.push("One").push("Two").push("Three").push("Four")
+# print(dlist)
+# print(dlist.shift().value)
+# print(dlist)
+
+# print(dlist.shift().value)
+# print(dlist)
+
+# print(dlist.shift().value)
+# print(dlist)
+
+# print(dlist.shift().value)
+# print(dlist)
+
+# print(dlist.shift())
+# print(dlist)
+
+# print("--------------------Unshift-----------------------")            
+# dlist=DoublyLinkedList()
+# dlist.push("One").push("Two").push("Three").push("Four")
+# print(dlist)
+# dlist.unshift("Five")
+# print(dlist)
+
+# dlist.unshift("Six")
+# print(dlist)
+
+# dlist.unshift("Seven")
+# print(dlist)
+
+# dlist.unshift("Eight")
+# print(dlist)
+
+# print("-------------------Get-------------------------")
+# dlist=DoublyLinkedList()
+# dlist.push("One").push("Two").push("Three").push("Four").push("Five").push("Six").push("Seven").push("Eight")
+# print(dlist)
+# print(dlist.get(2).value)
+# print(dlist.get(0).value)
+# print(dlist.get(1).value)
+# print(dlist.get(3).value)
+# print(dlist.get(4).value)
+# print(dlist.get(6).value)
+# print(dlist.get(7).value)
+# print(dlist.get(8))
+
+# print("--------------------Set-------------------------")
+# dlist=DoublyLinkedList()
+# dlist.push("One").push("Two").push("Three").push("Four")
+# print(dlist)
+# dlist.set(3,"Teste")
+# print(dlist)
+# dlist.set(0,"12121")
+# print(dlist)
+# dlist.set(1,78)
+# print(dlist)
+# dlist.set(2,1)
+# print(dlist)
+# dlist.set(4,1111)
+# print(dlist)
+
+print("--------------------Insert-------------------------")
 dlist=DoublyLinkedList()
 dlist.push("One").push("Two").push("Three").push("Four")
-print(dlist)    
-
-print("--------------------Pop-----------------------")            
-dlist=DoublyLinkedList()
-dlist.push("One").push("Two").push("Three").push("Four")
 print(dlist)
-print(dlist.pop().value)
+dlist.insert(3,"Teste")
 print(dlist)
-
-print(dlist.pop().value)
+dlist.insert(0,"12121")
 print(dlist)
-
-print(dlist.pop().value)
+dlist.insert(1,78)
 print(dlist)
-
-print(dlist.pop().value)
+dlist.insert(2,1)
 print(dlist)
-
-print(dlist.pop())
+dlist.insert(4,1111)
 print(dlist)
-
-print("--------------------Shift-----------------------")            
-dlist=DoublyLinkedList()
-dlist.push("One").push("Two").push("Three").push("Four")
-print(dlist)
-print(dlist.shift().value)
-print(dlist)
-
-print(dlist.shift().value)
-print(dlist)
-
-print(dlist.shift().value)
-print(dlist)
-
-print(dlist.shift().value)
-print(dlist)
-
-print(dlist.shift())
-print(dlist)
-
-print("--------------------Unshift-----------------------")            
-dlist=DoublyLinkedList()
-dlist.push("One").push("Two").push("Three").push("Four")
-print(dlist)
-dlist.unshift("Five")
-print(dlist)
-
-dlist.unshift("Six")
-print(dlist)
-
-dlist.unshift("Seven")
-print(dlist)
-
-dlist.unshift("Eight")
-print(dlist)
-
-print("-------------------Get-------------------------")
-dlist=DoublyLinkedList()
-dlist.push("One").push("Two").push("Three").push("Four").push("Five").push("Six").push("Seven").push("Eight")
-print(dlist)
-print(dlist.get(2).value)
-print(dlist.get(0).value)
-print(dlist.get(1).value)
-print(dlist.get(3).value)
-print(dlist.get(4).value)
-print(dlist.get(6).value)
-print(dlist.get(7).value)
-print(dlist.get(8))
-
-print("--------------------Set-------------------------")
-dlist=DoublyLinkedList()
-dlist.push("One").push("Two").push("Three").push("Four")
-print(dlist)
-dlist.set(3,"Teste")
-print(dlist)
-dlist.set(0,"12121")
-print(dlist)
-dlist.set(1,78)
-print(dlist)
-dlist.set(2,1)
-print(dlist)
-dlist.set(4,1111)
+dlist.insert(9,"Last item")
+dlist.insert(11,"Last item")
 print(dlist)
