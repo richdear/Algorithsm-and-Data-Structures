@@ -98,6 +98,13 @@ class DoublyLinkedList():
                 position_counter-=1
         return looper
             
+    def set(self, position, value):
+        node_to_update=self.get(position)
+        if node_to_update:
+            node_to_update.value=value
+            return True
+        return False
+            
 
 print("--------------------Push-----------------------")            
 dlist=DoublyLinkedList()
@@ -170,3 +177,18 @@ print(dlist.get(4).value)
 print(dlist.get(6).value)
 print(dlist.get(7).value)
 print(dlist.get(8))
+
+print("--------------------Set-------------------------")
+dlist=DoublyLinkedList()
+dlist.push("One").push("Two").push("Three").push("Four")
+print(dlist)
+dlist.set(3,"Teste")
+print(dlist)
+dlist.set(0,"12121")
+print(dlist)
+dlist.set(1,78)
+print(dlist)
+dlist.set(2,1)
+print(dlist)
+dlist.set(4,1111)
+print(dlist)
