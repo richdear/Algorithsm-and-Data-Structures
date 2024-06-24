@@ -34,6 +34,43 @@ class DoublyLinkedList():
             looper=looper.next
         return label
 
+    def pop(self):
+        if self.empty():
+            return None
+        elif self.length==1:
+            popped=self.tail
+            self.head=None
+            self.tail=None
+            self.length-=1
+            return popped
+        else:
+            popped=self.tail
+            self.tail=popped.prev
+            popped.prev=None
+            self.tail.next=None
+            self.length-=1
+            return popped
+
+print("--------------------Push-----------------------")            
 dlist=DoublyLinkedList()
 dlist.push("One").push("Two").push("Three").push("Four")
+print(dlist)
+
+print("--------------------Pop-----------------------")            
+dlist=DoublyLinkedList()
+dlist.push("One").push("Two").push("Three").push("Four")
+print(dlist)
+print(dlist.pop().value)
+print(dlist)
+
+print(dlist.pop().value)
+print(dlist)
+
+print(dlist.pop().value)
+print(dlist)
+
+print(dlist.pop().value)
+print(dlist)
+
+print(dlist.pop())
 print(dlist)
