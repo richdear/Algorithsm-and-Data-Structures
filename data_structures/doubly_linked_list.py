@@ -82,10 +82,9 @@ class DoublyLinkedList():
             return self.head
         if position==self.length-1:
             return self.tail
-        distance_from_beginning=abs(position-0)
-        distance_from_end=abs(position-(self.length-1))
         
-        if distance_from_beginning<distance_from_end:
+        middle=self.length//2
+        if position<middle:
             looper=self.head
             position_counter=0
             while position_counter!=position:
@@ -93,10 +92,10 @@ class DoublyLinkedList():
                 position_counter+=1
         else:
             looper=self.tail
-            position_counter=0
-            while position_counter!=distance_from_end:
+            position_counter=self.length-1
+            while position_counter!=position:
                 looper=looper.prev
-                position_counter+=1
+                position_counter-=1
         return looper
             
 
