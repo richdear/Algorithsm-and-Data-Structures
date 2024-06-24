@@ -74,12 +74,36 @@ class DoublyLinkedList():
             self.head=new_node
         self.length+=1
         return True
+    
+    def get(self, position):
+        if position<0 or position>=self.length:
+            return None 
+        if position==0:
+            return self.head
+        if position==self.length-1:
+            return self.tail
+        distance_from_beginning=abs(position-0)
+        distance_from_end=abs(position-(self.length-1))
+        
+        if distance_from_beginning<distance_from_end:
+            looper=self.head
+            position_counter=0
+            while position_counter!=position:
+                looper=looper.next
+                position_counter+=1
+        else:
+            looper=self.tail
+            position_counter=0
+            while position_counter!=distance_from_end:
+                looper=looper.prev
+                position_counter+=1
+        return looper
             
 
 print("--------------------Push-----------------------")            
 dlist=DoublyLinkedList()
 dlist.push("One").push("Two").push("Three").push("Four")
-print(dlist)
+print(dlist)    
 
 print("--------------------Pop-----------------------")            
 dlist=DoublyLinkedList()
@@ -119,7 +143,7 @@ print(dlist)
 print(dlist.shift())
 print(dlist)
 
-print("--------------------Undhift-----------------------")            
+print("--------------------Unshift-----------------------")            
 dlist=DoublyLinkedList()
 dlist.push("One").push("Two").push("Three").push("Four")
 print(dlist)
@@ -134,3 +158,16 @@ print(dlist)
 
 dlist.unshift("Eight")
 print(dlist)
+
+print("-------------------Get-------------------------")
+dlist=DoublyLinkedList()
+dlist.push("One").push("Two").push("Three").push("Four").push("Five").push("Six").push("Seven").push("Eight")
+print(dlist)
+print(dlist.get(2).value)
+print(dlist.get(0).value)
+print(dlist.get(1).value)
+print(dlist.get(3).value)
+print(dlist.get(4).value)
+print(dlist.get(6).value)
+print(dlist.get(7).value)
+print(dlist.get(8))
