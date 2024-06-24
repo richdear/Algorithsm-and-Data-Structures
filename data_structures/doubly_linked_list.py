@@ -47,6 +47,21 @@ class DoublyLinkedList():
             self.tail.next=None
         self.length-=1    
         return popped
+    
+    def shift(self):
+        if self.empty():
+            return None
+        
+        popped=self.head
+        if self.length==1:
+            self.head=None
+            self.tail=None
+        else:
+            self.head=popped.next
+            popped.next=None
+            self.head.prev=None
+        self.length-=1
+        return popped
 
 print("--------------------Push-----------------------")            
 dlist=DoublyLinkedList()
@@ -70,4 +85,23 @@ print(dlist.pop().value)
 print(dlist)
 
 print(dlist.pop())
+print(dlist)
+
+print("--------------------Shift-----------------------")            
+dlist=DoublyLinkedList()
+dlist.push("One").push("Two").push("Three").push("Four")
+print(dlist)
+print(dlist.shift().value)
+print(dlist)
+
+print(dlist.shift().value)
+print(dlist)
+
+print(dlist.shift().value)
+print(dlist)
+
+print(dlist.shift().value)
+print(dlist)
+
+print(dlist.shift())
 print(dlist)
