@@ -115,10 +115,11 @@ class DoublyLinkedList():
         new_node=Node(value)
         node_at_position=self.get(position)
         if node_at_position:
+            before_node=node_at_position.prev
             new_node.next=node_at_position
-            new_node.prev=node_at_position.prev
-            if node_at_position.prev:
-                node_at_position.prev.next=new_node
+            new_node.prev=before_node
+            if before_node:
+                before_node.next=new_node
             node_at_position.prev=new_node
             self.length+=1
             return True
